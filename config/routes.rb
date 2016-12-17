@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :chatrooms
+  resources :chatrooms do
+    resource :chatroom_users
+  end
   mount_devise_token_auth_for 'User', at: 'auth'
   resources :monsters
   resources :users
