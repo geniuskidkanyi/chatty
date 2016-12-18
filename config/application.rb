@@ -9,6 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
@@ -18,6 +19,9 @@ Bundler.require(*Rails.groups)
 
 module Chatty
   class Application < Rails::Application
+    config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionController::Helpers
+    config.middleware.use ActionDispatch::Session::CookieStore
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
