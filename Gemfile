@@ -10,6 +10,7 @@ gem 'puma', '~> 3.0'
 gem 'active_model_serializers'
 gem 'rack-cors'
 gem 'devise_token_auth'
+gem 'simple_token_authentication', '~> 1.0'
 gem 'omniauth'
 gem 'redis'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+  acts_as_token_authentication_handler_for User
+  # include DeviseTokenAuth::Concerns::SetUserByToken
 end
