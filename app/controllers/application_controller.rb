@@ -12,12 +12,12 @@ class ApplicationController < ActionController::API
       @visitor =  Visitor.create!(location: request.remote_ip, ip: request.remote_ip)
       log_in @visitor
       @chatroom = Chatroom.create!(name: @visitor.location)
-      @chatroom_user = @chatroom.chatroom_users.where(user_id: visitor.id).first_or_create
+      @chatroom_user = @chatroom.chatroom_users.where(user_id: @visitor.id).first_or_create
     end
   end
 
   def log_in(visitor)
-    session[:visitor_id] = visitor.id
+    session[:visitor_id] = @visitor.id
   end
   # include DeviseTokenAuth::Concerns::SetUserByToken
 end
